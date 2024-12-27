@@ -1,0 +1,21 @@
+.scontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+    background-color:#f8f4ef; 
+    margin: 0;
+ }
+ 
+ .splash-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+ 
+ .splash-logo {
+    max-width: 100%; 
+    max-height: 80%; 
+ }
+ 
