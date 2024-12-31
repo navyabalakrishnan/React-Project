@@ -29,7 +29,15 @@ const validateConfirmPassword = (password, confirmPassword) => {
       ? ""
       : "Passwords does not match.";
   };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setErrors(prevErrors => ({ ...prevErrors, password: "" })); 
+  };
 
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    setErrors(prevErrors => ({ ...prevErrors, confirmPassword: "" })); 
+   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,7 +82,7 @@ const passwordError = validatePassword(password);
               <input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlePasswordChange}
                 style={{ marginBottom: "10px", padding: "10px", width: "250px" }}
               />
               {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
@@ -85,7 +93,7 @@ const passwordError = validatePassword(password);
               <input
                 type="password"
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={handleConfirmPasswordChange}
                 style={{ marginBottom: "10px",
                    padding: "10px", 
                    width: "250px" }}

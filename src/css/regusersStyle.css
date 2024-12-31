@@ -1,0 +1,9 @@
+th{
+    padding: 10px;
+}
+@media (max-width: 768px) {
+    table {
+      font-size: 12px; 
+    }
+   
+  }

@@ -1,16 +1,10 @@
 import React from 'react'
-import Sidebar from '../../Layout/Sidebar'
 
-
+import Sidebar from '../../Layout/Sidebar.jsx'
 function AdminDashboard() {
-  return (<>
+  return (
     <div><Sidebar/>
-    
-    
-    
     </div>
-
-    </>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../css/paginationstyle.css';
+import '../../css/regusersStyle.css';
 import {  useNavigate } from 'react-router-dom';
 
 import Table from 'react-bootstrap/Table';
@@ -60,7 +61,7 @@ const RegisteredUsers = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchEmail, setSearchEmail] = useState('');
     const navigate=useNavigate();
-    const usersPerPage = 10;
+    const usersPerPage = 15;
     const filteredUsers = usersData.filter(user =>
       user.email.toLowerCase().includes(searchEmail.toLowerCase())
     );
@@ -81,7 +82,7 @@ const RegisteredUsers = () => {
     };
   const handleLogout=()=>
     {
-        localStorage.removeItem('adminPassword')
+      
         navigate('/login')
     }
   
@@ -103,6 +104,8 @@ const RegisteredUsers = () => {
         onClick={handleLogout}
         style={{
           backgroundColor: '#fbc477',
+          position:'fixed',
+          top:'25px',right:'10px',
           color: '#fff',
           border: 'none',
           borderRadius: '4px',
@@ -110,7 +113,7 @@ const RegisteredUsers = () => {
           cursor: 'pointer',
           fontSize: '14px',
           fontWeight: 'bold',
-        }}
+          zIndex:1000        }}
       >
         Logout
       </button></div>
@@ -130,20 +133,24 @@ const RegisteredUsers = () => {
               }}
             />
           </div>
-  
+  <div style={{
+    overflow:'auto',marginBottom:'16px'
+  }}>
           <Table
             style={{
               width: '100%',
+              minWidth:'600px',
               textAlign: 'center',
               backgroundColor: '#ffffff',
               border: '1px solid #ddd',
               borderRadius: '8px',
+            borderCollapse:'collapse',
               boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
             }}
           >
             <thead style={{ backgroundColor: '#f0f0f0' }}>
-              <tr>
-                <th>No.</th>
+              <tr >
+                <th >No.</th>
                 <th>Firstname</th>
                 <th>Email</th>
                 <th>Birthday</th>
@@ -166,6 +173,7 @@ const RegisteredUsers = () => {
               ))}
             </tbody>
           </Table>
+          </div>
           <div className="pagination_rounded">
           <ul>
             <li>

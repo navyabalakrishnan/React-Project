@@ -27,7 +27,16 @@ function LoginPage() {
         const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
         return passwordPattern.test(password)
             ? ""
-            : "Password must be at least 8 characters long and contain both letters and numbers.";
+            : "Password must be at least 8 characters long and contain both letters and numbers(not include special characters).";
+    };
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+         setErrors(prevErrors => ({ ...prevErrors, email: "" }));
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        setErrors(prevErrors => ({ ...prevErrors, password: "" }));
     };
 
 
@@ -87,7 +96,7 @@ function LoginPage() {
                             <input
                                 type="email"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={ handleEmailChange}
                                 style={{ marginBottom: "20px", padding: "10px", width: "250px" }}
                             />
                             {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
@@ -99,7 +108,7 @@ function LoginPage() {
                             <input
                                 type="password"
                                 value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={handlePasswordChange}
                                 style={{ marginBottom: "20px", padding: "10px", width: "250px" }}
                             />
                             {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}

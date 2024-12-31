@@ -9,7 +9,7 @@ function Splash() {
    useEffect(() => {
       const splashtime = setTimeout(() => {
          navigate("/set-password");
-      }, 10000);
+      }, 5000);
 
       return () => clearTimeout(splashtime); 
    }, [navigate]);

@@ -14,6 +14,15 @@ function Resetpassword() {
         const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return regEx.test(email) ? "" : "Please enter a valid email address.";
     };
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+         setErrors(prevErrors => ({ ...prevErrors, email: "" }));
+    };
+
+ 
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -65,7 +74,7 @@ function Resetpassword() {
                             <form onSubmit={handleSubmit}>
                                 <label style={{ marginBottom: '10px', alignContent: 'flex-start', display: 'block' }}> Email:</label>
 
-                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ padding: '10px', border: '1px solid #ccc' }} />
+                                <input type="email" value={email} onChange={handleEmailChange} style={{ padding: '10px', border: '1px solid #ccc' }} />
 
                                 {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
                                 <br />
